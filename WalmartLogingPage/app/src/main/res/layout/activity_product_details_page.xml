@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductDetailsPage">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_product"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@drawable/electronic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lbl_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_product"
+            tools:text="Samsung Galaxy S22 Ultra" />
+
+        <TextView
+            android:id="@+id/lbl_item_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Walmart #: 6546545"
+            android:textSize="19sp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/lbl_color"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_color" />
+
+        <TextView
+            android:id="@+id/lbl_color"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Color : Black"
+            android:textSize="19sp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/lbl_name"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_name" />
+
+        <TextView
+            android:id="@+id/lbl_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Item description : description"
+            android:textSize="19sp"
+            android:layout_marginTop="25dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/lbl_item_id"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_item_id" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
