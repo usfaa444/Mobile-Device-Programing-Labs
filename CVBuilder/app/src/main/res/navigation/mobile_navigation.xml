@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.usfaa.cvbuilder.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_about"
+        android:name="com.usfaa.cvbuilder.ui.about.AboutFragment"
+        android:label="@string/title_about"
+        tools:layout="@layout/fragment_aboutme" />
+
+    <fragment
+        android:id="@+id/navigation_work"
+        android:name="com.usfaa.cvbuilder.ui.work.WorkFragment"
+        android:label="@string/title_work"
+        tools:layout="@layout/fragment_work" />
+
+    <fragment
+        android:id="@+id/navigation_contact"
+        android:name="com.usfaa.cvbuilder.ui.contact.ContactFragment"
+        android:label="@string/title_contact"
+        tools:layout="@layout/fragment_contact" />
+
+    <fragment
+        android:id="@+id/navigation_login"
+        android:name="com.usfaa.cvbuilder.ui.login.LoginFragment"
+        android:label="@string/login"
+        tools:layout="@layout/login_fragment" >
+    </fragment>
+</navigation>

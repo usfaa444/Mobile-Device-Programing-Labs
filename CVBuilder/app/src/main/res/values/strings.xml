@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">CV Builder</string>
+    <string name="title_home">Home</string>
+    <string name="title_about">About Me</string>
+    <string name="title_work">Work</string>
+    <string name="title_contact">Contact</string>
+    <string name="fill_email">Please fill the email</string>
+    <string name="fill_password">Please fill the password</string>
+    <string name="login">Login</string>
+    <string name="completed"><b>Completed:</b> On-campus studies and currently (Available for full-time W2 employment)</string>
+    <string name="inprogress"><b>In progress:</b> Taking distance education courses to complete a Master\'s Degree in Computer Science</string>
+    <string name="tools"><b>Tools:</b> Android Studio, Firebase, Jira…</string>
+    <string name="frameworks"><b>Frameworks:</b> Laravel, Django, Lumen, Flutter, Angular, Ionic</string>
+    <string name="language"><b>Language:</b> Java, Kotlin, C#, Python, C++</string>
+    <string name="edit"><u>Edit</u></string>
+    <string name="add"><u>Add</u></string>
+</resources>
