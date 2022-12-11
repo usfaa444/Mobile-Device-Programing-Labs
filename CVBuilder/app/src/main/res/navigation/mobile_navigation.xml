@@ -27,7 +27,23 @@
         android:id="@+id/navigation_contact"
         android:name="com.usfaa.cvbuilder.ui.contact.ContactFragment"
         android:label="@string/title_contact"
-        tools:layout="@layout/fragment_contact" />
+        tools:layout="@layout/fragment_contact" >
+        <action
+            android:id="@+id/action_navigation_contact_to_navigation_web_view"
+            app:destination="@id/navigation_web_view">
+            <argument android:name="url"
+                app:argType="string"/>
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_web_view"
+        android:name="com.usfaa.cvbuilder.ui.webview.WebViewFragment"
+        android:label="@string/web_view"
+        tools:layout="@layout/fragment_web_view" >
+        <argument android:name="url"
+            app:argType="string"/>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_login"

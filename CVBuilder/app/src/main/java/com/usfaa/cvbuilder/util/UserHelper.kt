@@ -42,7 +42,7 @@ class UserHelper constructor(
     }
 
     fun saveRegisteredUser() {
-        registeredUser = User("John Doe", "john@gmail.com", "123456789")
+        registeredUser = User("John Doe", "john@gmail.com", "+12223334444", "123456789")
     }
 
     private companion object {

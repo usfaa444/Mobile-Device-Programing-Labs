@@ -14,4 +14,11 @@
     <string name="language"><b>Language:</b> Java, Kotlin, C#, Python, C++</string>
     <string name="edit"><u>Edit</u></string>
     <string name="add"><u>Add</u></string>
+    <string name="delete"><u>Delete</u></string>
+    <string name="web_view">Web View</string>
+    <string name="whatsapp">Whatsapp</string>
+    <string name="gmail">Gmail</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="telegram">Telegram</string>
+    <string name="log_out">Log Out</string>
 </resources>

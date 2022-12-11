@@ -1,14 +1,18 @@
 package com.usfaa.cvbuilder
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.usfaa.cvbuilder.util.UserHelper
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.usfaa.cvbuilder.databinding.ActivityMainBinding
+import com.usfaa.cvbuilder.util.UserHelper
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -55,5 +59,41 @@ class MainActivity : AppCompatActivity() {
         val navGraph = navController.navInflater.inflate(R.navigation.mobile_navigation)
         navGraph.setStartDestination(resourceId)
         navController.graph = navGraph
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.telegram -> showUrl("https://telegram.org/")
+            R.id.gmail -> {
+                val emailIntent = Intent(Intent.ACTION_SENDTO, Uri.parse(
+                    "mailto:${userHelper.user?.email}"))
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Message Subject")
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Message Body")
+                startActivity(Intent.createChooser(emailIntent, "Send Email"))
+            }
+            R.id.whatsap -> {
+                val url = "https://api.whatsapp.com/send?phone=${userHelper.user?.phone}"
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                startActivity(intent)
+            }
+            R.id.linkedin -> showUrl("https://www.linkedin.com/")
+            R.id.logout -> {
+                userHelper.logUserOut()
+                val intent = Intent(this, MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun showUrl(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
     }
 }

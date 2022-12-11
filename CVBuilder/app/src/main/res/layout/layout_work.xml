@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/lblEditEducation"
+        android:id="@+id/lblEditWork"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/edit"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/lblDeleteEducation"
+        android:id="@+id/lblDeleteWork"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/delete"
@@ -36,11 +36,12 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,13 +58,13 @@
                 android:id="@+id/imageView"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/company"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/lblInstitute"
+                android:id="@+id/lblCompany"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -76,15 +77,50 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/lblDegree"
+                android:id="@+id/lblFromToDate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Master in Computer Science"
+                android:text="Jan 2021 - Present"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/lblInstitute"
-                app:layout_constraintTop_toBottomOf="@+id/lblInstitute" />
+                app:layout_constraintStart_toStartOf="@+id/lblCompany"
+                app:layout_constraintTop_toBottomOf="@+id/lblCompany" />
+
+            <TextView
+                android:id="@+id/lblLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="The Bronx, NY, 10452"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/lblCompany"
+                app:layout_constraintTop_toBottomOf="@+id/lblFromToDate" />
+
+            <TextView
+                android:id="@+id/lblTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Software Engineer III"
+                android:textColor="@color/purple_200"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/lblCompany"
+                app:layout_constraintTop_toBottomOf="@+id/lblLocation" />
+
+            <TextView
+                android:id="@+id/lblSkills"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Skills: Java, Kotlin, MVVM..."
+                android:textColor="@color/blue"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/lblCompany"
+                app:layout_constraintTop_toBottomOf="@+id/lblTitle" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

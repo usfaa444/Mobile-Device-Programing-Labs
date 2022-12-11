@@ -196,7 +196,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@+id/imgPhone"
-                android:text="+1 641-514-6859"
+                android:text="+1 222-333-4444"
                 android:textSize="18sp"
                 android:textColor="@color/black"
                 android:textStyle="bold" />

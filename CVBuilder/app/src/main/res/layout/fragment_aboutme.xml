@@ -1,168 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.about.AboutFragment">
 
-    <TextView
-        android:id="@+id/lblAboutMe"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:text="About Me"
-        android:textColor="@color/purple_700"
-        android:layout_marginTop="15dp"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/lblEditAboutMe"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/edit"
-        android:textColor="@color/purple_200"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/lblAboutMe"
-        app:layout_constraintEnd_toEndOf="@+id/cardView3"
-        app:layout_constraintTop_toTopOf="@+id/lblAboutMe"
-        app:drawableEndCompat="@drawable/ic_edit"
-        app:drawableTint="@color/purple_200" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="25dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/lblAboutMe"
-        app:layout_constraintTop_toBottomOf="@+id/lblAboutMe">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/lblAboutMe"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="10dp">
+            android:layout_marginStart="25dp"
+            android:text="About Me"
+            android:textColor="@color/purple_700"
+            android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/lblAboutMeText"
+        <TextView
+            android:id="@+id/lblEditAboutMe"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/edit"
+            android:textColor="@color/purple_200"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/lblAboutMe"
+            app:layout_constraintEnd_toEndOf="@+id/cardView3"
+            app:layout_constraintTop_toTopOf="@+id/lblAboutMe"
+            app:drawableEndCompat="@drawable/ic_edit"
+            app:drawableTint="@color/purple_200" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/lblAboutMe"
+            app:layout_constraintTop_toBottomOf="@+id/lblAboutMe">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:padding="10dp">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/lblAboutMeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/lblEducation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="Education"
-        android:textColor="@color/purple_700"
-        android:textSize="22sp"
-        android:layout_marginTop="25dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+        </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/addEducation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/add"
-        android:textColor="@color/purple_200"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/lblEducation"
-        app:layout_constraintEnd_toEndOf="@+id/cardView3"
-        app:layout_constraintTop_toTopOf="@+id/lblEducation"
-        app:drawableEndCompat="@drawable/ic_add_15"
-        app:drawableTint="@color/purple_200" />
+        <TextView
+            android:id="@+id/lblEducation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Education"
+            android:textColor="@color/purple_700"
+            android:textSize="22sp"
+            android:layout_marginTop="25dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
-    <TextView
-        android:id="@+id/lblNoDataEducation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="No education added yet!"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:layout_marginTop="5dp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblEducation" />
+        <TextView
+            android:id="@+id/addEducation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/add"
+            android:textColor="@color/purple_200"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/lblEducation"
+            app:layout_constraintEnd_toEndOf="@+id/cardView3"
+            app:layout_constraintTop_toTopOf="@+id/lblEducation"
+            app:drawableEndCompat="@drawable/ic_add_15"
+            app:drawableTint="@color/purple_200" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewEducation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblEducation" />
+        <TextView
+            android:id="@+id/lblNoDataEducation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No education added yet!"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblEducation" />
 
-    <TextView
-        android:id="@+id/lblCertification"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="Certification"
-        android:layout_marginTop="25dp"
-        android:textColor="@color/purple_700"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerViewEducation" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewEducation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblEducation" />
 
-    <TextView
-        android:id="@+id/lblNoDataCertification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="No certification added yet!"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:layout_marginTop="5dp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblCertification" />
+        <TextView
+            android:id="@+id/lblCertification"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Certification"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/purple_700"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewEducation" />
+
+        <TextView
+            android:id="@+id/lblNoDataCertification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No certification added yet!"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblCertification" />
 
 
-    <TextView
-        android:id="@+id/addCertification"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/add"
-        android:textColor="@color/purple_200"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/lblCertification"
-        app:layout_constraintEnd_toEndOf="@+id/cardView3"
-        app:layout_constraintTop_toTopOf="@+id/lblCertification"
-        app:drawableEndCompat="@drawable/ic_add_15"
-        app:drawableTint="@color/purple_200" />
+        <TextView
+            android:id="@+id/addCertification"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/add"
+            android:textColor="@color/purple_200"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/lblCertification"
+            app:layout_constraintEnd_toEndOf="@+id/cardView3"
+            app:layout_constraintTop_toTopOf="@+id/lblCertification"
+            app:drawableEndCompat="@drawable/ic_add_15"
+            app:drawableTint="@color/purple_200" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewCertification"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblCertification" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewCertification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lblCertification" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</ScrollView>
