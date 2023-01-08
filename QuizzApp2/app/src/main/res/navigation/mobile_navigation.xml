@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_start">
+
+    <fragment
+        android:id="@+id/navigation_start"
+        android:name="com.usfaa.quizzapp.ui.start.StartFragment"
+        android:label="@string/welcome"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_navigation_start_to_navigation_quiz"
+            app:destination="@id/navigation_quiz" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_quiz"
+        android:name="com.usfaa.quizzapp.ui.quizz.QuizFragment"
+        android:label="@string/quiz"
+        tools:layout="@layout/fragment_quiz" >
+        <action
+            android:id="@+id/action_navigation_quiz_to_navigation_result"
+            app:destination="@id/navigation_result" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_result"
+        android:name="com.usfaa.quizzapp.ui.results.ResultFragment"
+        android:label="@string/results"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_navigation_result_to_navigation_analysis"
+            app:destination="@id/navigation_analysis" />
+        <action
+            android:id="@+id/action_navigation_result_to_navigation_quiz"
+            app:destination="@id/navigation_quiz" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_analysis"
+        android:name="com.usfaa.quizzapp.ui.analyse.AnalysisFragment"
+        android:label="@string/analysis"
+        tools:layout="@layout/fragment_analysis" />
+
+</navigation>

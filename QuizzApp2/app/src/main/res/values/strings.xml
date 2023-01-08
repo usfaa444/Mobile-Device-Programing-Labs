@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">QuizzApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome">Welcome</string>
+    <string name="quiz">Quiz</string>
+    <string name="exit_warning">You are about to leave the quiz, and all your progress will be lost, do you wish to continue?</string>
+    <string name="stay">Stay</string>
+    <string name="leave">Leave</string>
+    <string name="results">Results</string>
+    <string name="analysis">Result Analysis</string>
+</resources>
