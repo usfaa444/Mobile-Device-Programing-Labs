@@ -39,7 +39,7 @@ class AnalysisFragment : Fragment() {
     }
 
     private fun formatData(resultAnalysisData: ResultAnalysisData) {
-        val results = mutableListOf<com.usfaa.quizzapp.data.models.Result>()
+        val results = mutableListOf<Result>()
         var i = 0
         resultAnalysisData.questions.forEach { question ->
             results.add(Result(question, resultAnalysisData.correctAnswers[i], resultAnalysisData.submittedAnswers[i]))
@@ -48,7 +48,7 @@ class AnalysisFragment : Fragment() {
         showResultAnalysis(results)
     }
 
-    private fun showResultAnalysis(result: List<com.usfaa.quizzapp.data.models.Result>) {
+    private fun showResultAnalysis(result: List<Result>) {
         val resultAdapter = ResultAnalysisAdapter(result)
         binding.recyclerViewResultAnalysis.adapter = resultAdapter
     }

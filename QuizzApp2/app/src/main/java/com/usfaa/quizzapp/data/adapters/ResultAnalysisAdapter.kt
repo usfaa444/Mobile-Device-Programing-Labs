@@ -18,8 +18,12 @@ class ResultAnalysisAdapter(private val result: List<com.usfaa.quizzapp.data.mod
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.lblQuestion.text = "Question ${position + 1}: " + result[position].question.question
         holder.lblCorrectAnswer.text = "Correct Ans: " + result[position].correctAnswer.response
-        holder.lblYourAnswer.text = "Your Ans: " + result[position].yourAnswer.response
-        if (result[position].correctAnswer.id == result[position].yourAnswer.id) {
+        result[position].yourAnswer?.let {
+            holder.lblYourAnswer.text = "Your Ans: " + it.response
+        } ?: kotlin.run {
+            holder.lblYourAnswer.text = "Your Ans: Question Skipped"
+        }
+        if (result[position].correctAnswer.id == result[position].yourAnswer?.id) {
             holder.lblYourAnswer.setTextColor(holder.itemView.context.resources.getColor(R.color.green))
         } else {
             holder.lblYourAnswer.setTextColor(holder.itemView.context.resources.getColor(R.color.red))

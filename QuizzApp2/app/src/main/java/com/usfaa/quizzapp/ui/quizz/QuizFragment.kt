@@ -1,16 +1,21 @@
 package com.usfaa.quizzapp.ui.quizz
 
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.addCallback
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +26,7 @@ import com.usfaa.quizzapp.data.models.Response
 import com.usfaa.quizzapp.databinding.FragmentQuizBinding
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class QuizFragment : Fragment() {
 
@@ -28,9 +34,10 @@ class QuizFragment : Fragment() {
     private lateinit var binding: FragmentQuizBinding
     private lateinit var responseAdapter: ResponseAdapter
     private var questionList = listOf<Question>()
-    private var answers = mutableMapOf<Question, Response>()
+    private var answers = mutableMapOf<Question, Response?>()
     private var actualQuestion = 0
     private var isResponseSelected = false
+    private lateinit var countDown: CountDownTimer
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,15 +49,6 @@ class QuizFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        /*val q1 = QuestionData(1, "Q1")
-        val r11 = Response(11, "R1", 1)
-        val r12 = Response(12, "R2", 1)
-        val r13 = Response(13, "R3", 1)
-        val q2 = QuestionData(2, "Q2")
-        val r21 = Response(21, "R1", 2)
-        val r22 = Response(22, "R2", 2)
-        val r23 = Response(23, "R3", 2)*/
-
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             showExitDialog()
         }
@@ -63,8 +61,33 @@ class QuizFragment : Fragment() {
 
         setUpObservers()
 
-        binding.cardViewNextQuiz.setOnClickListener { handleNextQuiz() }
+        binding.cardViewNextQuiz.setOnClickListener { handleNextQuiz(NEXT_QUESTION) }
         binding.cardViewHome.setOnClickListener { showExitDialog() }
+        binding.cardViewSkip.setOnClickListener { handleNextQuiz(SKIP_QUESTION) }
+
+        binding.fullTime.text = "${TIME_OUT_SKIP_QUESTION/1000} s"
+        countDown = object : CountDownTimer(TIME_OUT_SKIP_QUESTION, 1000) {
+            @RequiresApi(Build.VERSION_CODES.N)
+            override fun onTick(millisUntilFinished: Long) {
+                binding.remaining.text = "${(millisUntilFinished / 1000)}s"
+            }
+
+            override fun onFinish() {
+                handleNextQuiz(TIME_OUT_QUESTION)
+            }
+        }.start()
+    }
+
+    private fun startCountDownAnimation() {
+        val progressAnimator = ObjectAnimator.ofInt(binding.countDownProgress, "progress", 100, 0)
+        progressAnimator.duration = TIME_OUT_SKIP_QUESTION
+        progressAnimator.interpolator = LinearInterpolator()
+        progressAnimator.start()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        countDown.cancel()
     }
 
     private fun setUpObservers() {
@@ -81,19 +104,37 @@ class QuizFragment : Fragment() {
         }
     }
 
-    private fun handleNextQuiz() {
-        if (isResponseSelected) {
-            if (actualQuestion >= questionList.size) {
-                viewModel.submitAnswers(answers)
-                val direction = QuizFragmentDirections.actionNavigationQuizToNavigationResult()
-                findNavController().navigate(direction)
-            } else {
-                showQuestion(questionList[actualQuestion])
+    private fun handleNextQuiz(action: String) {
+        when(action) {
+            NEXT_QUESTION -> {
+                if (!isResponseSelected) {
+                    showMessage("You must select an answer")
+                } else {
+                    goToNextQuestion()
+                }
             }
-        } else {
-            showMessage("You must select an answer")
+            SKIP_QUESTION -> {
+                answers[questionList[actualQuestion-1]] = null
+                goToNextQuestion()
+            }
+            TIME_OUT_QUESTION -> {
+                if (!isResponseSelected) {
+                    answers[questionList[actualQuestion-1]] = null
+                }
+                goToNextQuestion()
+            }
         }
+    }
 
+    private fun goToNextQuestion() {
+        if (actualQuestion >= questionList.size) {
+            countDown.cancel()
+            viewModel.submitAnswers(answers)
+            val direction = QuizFragmentDirections.actionNavigationQuizToNavigationResult()
+            findNavController().navigate(direction)
+        } else {
+            showQuestion(questionList[actualQuestion])
+        }
     }
 
     private fun showExitDialog() {
@@ -110,6 +151,9 @@ class QuizFragment : Fragment() {
     }
 
     private fun showQuestion(question: Question) {
+        countDown.cancel()
+        countDown.start()
+        startCountDownAnimation()
         responseAdapter = ResponseAdapter(question.response) { selectedResponse ->
             updateResponseSelection(question, selectedResponse.id)
             answers[question] = selectedResponse
@@ -131,6 +175,13 @@ class QuizFragment : Fragment() {
 
     private fun showMessage(message: String) {
         Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+    }
+
+    companion object {
+        const val NEXT_QUESTION = "NEXT_QUESTION"
+        const val SKIP_QUESTION = "SKIP_QUESTION"
+        const val TIME_OUT_QUESTION = "TIME_OUT_QUESTION"
+        const val TIME_OUT_SKIP_QUESTION = 60000L
     }
 
 }

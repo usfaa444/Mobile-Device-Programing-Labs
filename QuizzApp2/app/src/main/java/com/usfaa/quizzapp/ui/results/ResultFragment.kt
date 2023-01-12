@@ -54,7 +54,7 @@ class ResultFragment : Fragment() {
         }
     }
 
-    private fun showResult(answers: MutableMap<Question, Response>) {
+    private fun showResult(answers: MutableMap<Question, Response?>) {
         val correctAnswers = mutableListOf<Response>()
         lifecycleScope.launch {
             withContext(Dispatchers.IO) {
@@ -62,7 +62,7 @@ class ResultFragment : Fragment() {
                     val correctAnswer = repository.getQuestionCorrectAnswer(question.id)
                     correctAnswer?.let {
                         correctAnswers.add(it)
-                        if (it.isCorrectAnswer && it.id == answers[question]?.id) {
+                        if (it.isCorrectAnswer && answers[question] != null && it.id == answers[question]?.id) {
                             score++
                         }
                     }

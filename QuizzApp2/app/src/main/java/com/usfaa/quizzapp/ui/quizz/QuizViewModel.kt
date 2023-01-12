@@ -18,12 +18,12 @@ class QuizViewModel @Inject constructor(
 ) : ViewModel() {
     private val questions = MutableLiveData<List<Question>>()
     private val message = MutableLiveData<String>()
-    private val answers = MutableLiveData<MutableMap<Question, Response>>()
+    private val answers = MutableLiveData<MutableMap<Question, Response?>>()
     private val resultAnalysisData = MutableLiveData<ResultAnalysisData>()
 
     fun getQuestionsLiveData(): LiveData<List<Question>> = questions
     fun getMessageLiveData(): LiveData<String> = message
-    fun getAnswersLiveData(): LiveData<MutableMap<Question, Response>> = answers
+    fun getAnswersLiveData(): LiveData<MutableMap<Question, Response?>> = answers
     fun getResultAnalysisData(): LiveData<ResultAnalysisData> = resultAnalysisData
 
     fun getQuestions() {
@@ -32,7 +32,7 @@ class QuizViewModel @Inject constructor(
         }
     }
 
-    fun submitAnswers(ans: MutableMap<Question, Response>) {
+    fun submitAnswers(ans: MutableMap<Question, Response?>) {
         answers.value = ans
     }
 
